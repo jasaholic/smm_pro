@@ -57,6 +57,8 @@ if (isset($_POST['login'])) {
     <!--    Document Title-->
     <!-- ===============================================-->
     <title><?php echo $data_settings['web_title']; ?></title>
+    <meta name="description" content="<?php echo $data_settings['web_description']; ?>">
+    <meta name="keywords" content="<?php echo $data_settings['seo_keywords']; ?>">
 
     <!-- ===============================================-->
     <!--    Favicons-->
@@ -90,6 +92,17 @@ if (isset($_POST['login'])) {
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet">
     <link href="assets/css/theme.min.css" rel="stylesheet" />
     <link href="assets/css/user.min.css" rel="stylesheet" />
+    
+    <!--HEADER TAG-->
+    <?php echo $data_settings['seo_meta']; ?>
+    <!--HEADER TAG END-->
+
+    <!--GTAG TAG-->
+    <?php echo $data_settings['seo_analytics']; ?>
+    <!--GTAG TAG END-->
+    <!--EMBED CHAT TAG-->
+    <?php echo $data_settings['seo_chat']; ?>
+    <!--EMBED CHAT TAG END-->
   </head>
 
   <body>
