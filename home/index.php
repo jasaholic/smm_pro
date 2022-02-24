@@ -68,6 +68,19 @@ if (isset($_POST['login'])) {
     <link rel="manifest" href="assets/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="<?php echo $data_settings['link_fav']; ?>">
     <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="<?php echo $data_settings['web_description']; ?>">
+    <meta name="keywords" content="<?php echo $data_settings['seo_keywords']; ?>">
+    <!--HEADER TAG-->
+    <?php echo $data_settings['seo_meta']; ?>
+    <!--HEADER TAG END-->
+
+    <!--GTAG TAG-->
+    <?php echo $data_settings['seo_analytics']; ?>
+    <!--GTAG TAG END-->
+
+    <!--EMBED CHAT TAG-->
+    <?php echo $data_settings['seo_chat']; ?>
+    <!--EMBED CHAT TAG END-->
 
     <!-- ===============================================-->
     <!--    Stylesheets-->

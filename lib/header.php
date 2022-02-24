@@ -13,198 +13,192 @@ if (isset($_SESSION['user'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Language" content="en">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="<?php echo $data_settings['web_description']; ?>">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?php echo $data_settings['web_title']; ?></title>
+  <meta name="description" content="<?php echo $data_settings['web_description']; ?>">
     <meta name="keywords" content="<?php echo $data_settings['seo_keywords']; ?>">
-    <title><?php echo $data_settings['web_title']; ?></title>
-    <link rel="icon" href="<?php echo $data_settings['link_fav']; ?>" type="image/x-icon">
-
-    <!--HEADER TAG-->
+  <!--HEADER TAG-->
     <?php echo $data_settings['seo_meta']; ?>
     <!--HEADER TAG END-->
 
     <!--GTAG TAG-->
     <?php echo $data_settings['seo_analytics']; ?>
     <!--GTAG TAG END-->
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?php echo $cfg_baseurl; ?>/assets/css/app.css">
-    <link rel="stylesheet" href="<?php echo $cfg_baseurl; ?>/css/style.css">
-    <meta name="theme-color" content="#127AFB" />
-
     <!--EMBED CHAT TAG-->
     <?php echo $data_settings['seo_chat']; ?>
     <!--EMBED CHAT TAG END-->
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?php echo $cfg_baseurl; ?>/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo $cfg_baseurl; ?>/dist/css/adminlte.min.css">
+  <link rel="icon" href="<?php echo $data_settings['link_fav']; ?>">
 </head>
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
 
-<body class="light">
-    <div id="app">
-        <aside class="main-sidebar fixed offcanvas shadow">
-            <section class="sidebar">
-                <div class="w-80px mt-3 mb-3 ml-3">
-                    <a href="<?= $cfg_baseurl ?>" class="navbar-brand">
-                        <img src="<?php echo $data_settings['link_logo_dark']; ?>" alt="<?php echo $data_settings['web_name']; ?>" class="tsg-header-logo">
-                    </a>
-                </div>
-                <div class="relative">
-                    <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false" aria-controls="userSettingsCollapse" class="btn-fab btn-fab-sm fab-right fab-top btn-primary shadow1 ">
-                        <i class="icon icon-cogs"></i>
-                    </a>
-                    <div class="user-panel p-3 light mb-2">
-                        <div>
-                            <div class="float-left image">
-                                <img class="user_avatar" src="<?php echo $cfg_baseurl; ?>/assets/img/dummy/u1.png" alt="User Image">
-                            </div>
-                            <div class="float-left info">
-                                <h6 class="font-weight-light mt-2 mb-1"><?php echo $data_user['username']; ?></h6>
-                                <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="collapse multi-collapse" id="userSettingsCollapse">
-                            <div class="list-group mt-3 shadow">
-                                <a href="<?php echo $cfg_baseurl; ?>/settings/" class="list-group-item list-group-item-action"><i class="mr-2 icon-cogs text-yellow"></i>Settings</a>
-                                <a href="<?php echo $cfg_baseurl; ?>/logout/" class="list-group-item list-group-item-action">
-                                    <i class="mr-2 icon-umbrella text-blue"></i>Log Out</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <ul class="sidebar-menu">
-                    <li class="treeview"><a href="<?php echo $cfg_baseurl; ?>">
-                            <i class="icon icon-home2 s-18 tsg-clr-blue1"></i><span> Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="treeview ">
-                        <a href="#">
-                            <i class="icon icon-shopping-cart2 s-18 tsg-clr-red1"></i> <span>Order</span>
-                            <i class="icon icon-angle-left s-18 pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?php echo $cfg_baseurl; ?>/order/"><i class="icon icon-add tsg-clr-red1"></i>New Order</a>
-                            </li>
-                            <li><a href="<?php echo $cfg_baseurl; ?>/history/order/"><i class="icon icon-time-is-money-1 tsg-clr-red1"></i>Order History</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="treeview ">
-                        <a href="#">
-                            <i class="icon icon-credit-card light-green-text s-18"></i> <span>Add Funds</span>
-                            <i class="icon icon-angle-left s-18 pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?php echo $cfg_baseurl; ?>/deposit/"><i class="icon light-green-text  icon-ticket"></i>Manual Deposits</a>
-                            </li>
-                            <li><a href="<?php echo $cfg_baseurl; ?>/tripay/"><i class="icon light-green-text icon-credit-card"></i>Instant Deposit</a>
-                            </li>
-                            <li><a href="<?php echo $cfg_baseurl; ?>/history/deposit/"><i class="icon light-green-text icon-time-is-money-1"></i>Deposit History</a>
-                            </li>
-                        </ul>
-                    </li>
-                    </li>
-                    <li><a href="<?php echo $cfg_baseurl; ?>/history/balance/"><i class="icon s-18 green-text icon-time-is-money-1"></i> Balance History</a>
-                    </li>
-                    <li><a href="<?php echo $cfg_baseurl; ?>/updates/"><i class="icon s-18 icon-newspaper-o tsg-clr-blue1"></i>News & Updates</a>
-                    </li>
-                    <li><a href="<?php echo $cfg_baseurl; ?>/api/docs/"><i class="icon icon-random s-18 tsg-clr-red1"></i>API Doc</a>
-                    </li>
-                    <li><a href="<?php echo $cfg_baseurl; ?>/services/"><i class="icon icon-list-ul light-blue-text s-18"></i>Services</a>
-                    </li>
-                    <!-- SUPPORT -->
-                    <li class="header light mt-3"><strong>SUPPORT</strong></li>
-                    <li><a href="<?php echo $cfg_baseurl; ?>/tickets/"><i class="icon icon-message light-blue-text s-18"></i>Tickets</a>
-                    </li>
-                    <li><a href="<?php echo $cfg_baseurl; ?>/faq/"><i class="icon s-18 icon-question-circle-o tsg-clr-red1"></i>FAQ</a>
-                    </li>
-                    <li><a href="<?php echo $cfg_baseurl; ?>/contact/"><i class="icon icon-support light-green-text s-18"></i>Contact</a>
-                    </li>
+  <!-- Preloader
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__wobble" src="<?php echo $cfg_baseurl; ?>/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>  -->
 
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <?php
+                                        if ($data_user['balance'] == "0" or $data_user['balance'] < 0) {
+                                        ?>
+        <a type="button" class="nav-link"><i class="fas fa-credit-card"></i> <?php echo rupiah($data_user['balance']); ?></a><?php
+                                        } ?>
+                                        <?php
+                                        if ($data_user['balance'] > 0) {
+                                        ?>
+        <a type="button" class="nav-link"><i class="fas fa-credit-card"></i> <?php echo rupiah($data_user['balance']); ?></a><?php
+                                        } ?>
+      </li>
+    </ul>
 
-                    <!-- ADMIN MENU -->
-                    <?php
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Notifications Dropdown Menu -->
+      
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="<?php echo $cfg_baseurl; ?>" class="brand-link">
+      <img src="<?php echo $cfg_baseurl; ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Dashboard</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Beranda
+                
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-header">Layanan</li>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/tripay" class="nav-link">
+              <i class="nav-icon fas fa-credit-card"></i>
+              <p>
+                Deposit Instant
+                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/order" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>
+                Order
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/services" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Layanan
+              </p>
+            </a>
+          </li>
+          
+          
+          <li class="nav-header">Riwayat</li>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/history/deposit" class="nav-link">
+              <i class="nav-icon fas fa-credit-card"></i>
+              <p>Deposit</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/history/balance" class="nav-link">
+              <i class="nav-icon fas fa-credit-card"></i>
+              <p>Saldo</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/history/order" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Pemesanan</p>
+            </a>
+          </li>
+          <li class="nav-header">Halaman</li>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/settings" class="nav-link">
+              <i class="fas fa-cog nav-icon"></i>
+              <p>Pengaturan</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/api" class="nav-link">
+              <i class="nav-icon fas fa-code"></i>
+              <p>
+                Dok API
+                
+              </p>
+            </a>
+            
+          </li>
+          
+          <li class="nav-header">Session</li>
+          <?php
                     if ($data_user['level'] == "Developers") {
                     ?>
-                        <li class="header light mt-3"><strong>ADMIN</strong></li>
-
-                        <li class="treeview"><a href="<?php echo $cfg_baseurl; ?>/admin">
-                                <i class="icon icon-home2 s-18"></i><span> Admin Dashboard</span>
-                            </a>
-                        </li>
-                    <?php
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/admin" class="nav-link">
+              <i class="nav-icon fas fa-cog text-danger"></i>
+              <p class="text">Administrator</p>
+            </a>
+          </li>
+           <?php
                     }
                     ?>
-                </ul>
-            </section>
-        </aside>
-        <!--Sidebar End-->
-        <div class="has-sidebar-left">
-            <div class="pos-f-t">
-                <div class="collapse" id="navbarToggleExternalContent">
-                    <div class="bg-dark pt-2 pb-2 pl-4 pr-2">
-                        <div class="search-bar">
-                            <input class="transparent s-24 text-white b-0 font-weight-lighter w-128 height-50" type="text" placeholder="start typing...">
-                        </div>
-                        <a href="#" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" class="paper-nav-toggle paper-nav-white active "><i></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="sticky">
-                <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar blue accent-3">
-                    <div class="relative">
-                        <a href="#" data-toggle="offcanvas" class="paper-nav-toggle pp-nav-toggle">
-                            <i></i>
-                        </a>
-                    </div>
-                    <!--Top Menu Start -->
-                    <div class="navbar-custom-menu p-t-10">
-                        <ul class="nav navbar-nav">
-                            <!-- User Account-->
-                            <li class="dropdown custom-dropdown user user-menu">
-                                <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="icon-more_vert "></i>
-                                </a>
-                                <div class="dropdown-menu p-4">
-                                    <div class="row box justify-content-between my-4">
-                                        <div class="col"><a href="<?php echo $cfg_baseurl; ?>/order/">
-                                                <i class="icon-shopping-cart blue accent-2 avatar  r-5"></i>
-                                                <div class="pt-1">New Order</div>
-                                            </a></div>
-                                        <div class="col"><a href="<?php echo $cfg_baseurl; ?>/paypal/">
-                                                <i class="icon-money red avatar lighten-2 r-5"></i>
-                                                <div class="pt-1">New Deposit</div>
-                                            </a></div>
-                                        <div class="col">
-                                            <a href="<?php echo $cfg_baseurl; ?>/services/">
-                                                <i class="icon-tags orange lighten-1 avatar  r-5"></i>
-                                                <div class="pt-1">Services</div>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a href="<?php echo $cfg_baseurl; ?>/history/order/">
-                                                <i class="icon-shopping-cart indigo lighten-2 avatar  r-5"></i>
-                                                <div class="pt-1 tsg-quick-menu-pre">My Orders</div>
-                                            </a>
-                                        </div>
-                                        <div class="col"><a href="<?php echo $cfg_baseurl; ?>/history/deposit/">
-                                                <i class="icon-credit-card light-green lighten-1 avatar  r-5"></i>
-                                                <div class="pt-1">My Deposits</div>
-                                            </a></div>
-                                        <div class="col">
-                                            <a href="<?php echo $cfg_baseurl; ?>/tickets/">
-                                                <i class="icon-email green lighten-1 avatar  r-5 accent white-text"></i>
-                                                <div class="pt-1">My Tickets</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+          <li class="nav-item">
+            <a href="<?php echo $cfg_baseurl; ?>/keluar" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Keluar</p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
